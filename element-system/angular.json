@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "e4d107a5-c549-4e93-822d-6dd58607c874"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "plugin-system": {
+    "element-system": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/plugin-system",
+            "outputPath": "dist/element-system",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "plugin-system:build:production"
+              "browserTarget": "element-system:build:production"
             },
             "development": {
-              "browserTarget": "plugin-system:build:development"
+              "browserTarget": "element-system:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "plugin-system:build"
+            "browserTarget": "element-system:build"
           }
         },
         "test": {
@@ -108,81 +105,7 @@
           }
         }
       }
-    },
-    "plugins": {
-      "projectType": "application",
-      "schematics": {},
-      "root": "projects/plugins",
-      "sourceRoot": "projects/plugins/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "./builders:plugin",
-          "options": {
-            "outputPath": "dist/plugins",
-            "index": "",
-            "main": "projects/plugins/src/main.ts",
-            "polyfills": "projects/plugins/src/polyfills.ts",
-            "tsConfig": "projects/plugins/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [],
-            "styles": [],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [],
-              "optimization": true,
-              "outputHashing": "none",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": false,
-              "vendorChunk": false,
-              "buildOptimizer": true
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "plugins:build:production"
-            },
-            "development": {
-              "browserTarget": "plugins:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "plugins:build"
-          }
-        }
-      }
     }
   },
-  "defaultProject": "plugin-system"
+  "defaultProject": "element-system"
 }
